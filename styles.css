@@ -51,6 +51,20 @@ header nav ul li a {
     text-decoration: none;
 }
 
+/* Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
 /* Sections */
 section {
     padding: 20px 0;
@@ -101,5 +115,14 @@ a:hover {
     header nav ul li {
         display: block;
         margin: 10px 0;
+    }
+
+    .profile {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .profile-img {
+        margin-bottom: 10px;
     }
 }
