@@ -12,7 +12,16 @@
             <h1>Priyanshu Dey</h1>
             <p>Dev</p>
             <nav>
-                <ul>
+                <ul class="main-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <!-- This is the button that shows only on small screens -->
+                <button class="menu-toggle" onclick="toggleMenu()">...</button>
+                <!-- Dropdown menu that shows only on mobile when the button is clicked -->
+                <ul class="dropdown-menu" id="dropdownMenu">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -59,7 +68,6 @@
                 <h3>Project Two</h3>
                 <p>Description of Project Two. It showcases my expertise in...</p>
             </div>
-            <!-- Add more projects as needed -->
         </div>
     </section>
 
@@ -75,5 +83,16 @@
             <p>&copy; 2024 Priyanshu Dey. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
 </body>
 </html>
