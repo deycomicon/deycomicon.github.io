@@ -1,98 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Priyanshu Dey - Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown to October 11th Midnight</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+    .countdown {
+      text-align: center;
+    }
+    .time {
+      font-size: 3em;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Priyanshu Dey</h1>
-            <p>Dev</p>
-            <nav>
-                <ul class="main-menu">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <!-- This is the button that shows only on small screens -->
-                <button class="menu-toggle" onclick="toggleMenu()">...</button>
-                <!-- Dropdown menu that shows only on mobile when the button is clicked -->
-                <ul class="dropdown-menu" id="dropdownMenu">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="profile">
-                <img src="images.jpeg" alt="Priyanshu Dey" class="profile-img">
-                <p>Hello! I'm Priyanshu Dey, a passionate Developer with experience in building dynamic and responsive web applications. I love coding and continuously learning new technologies.</p>
-            </div>
-        </div>
-    </section>
+  <div class="countdown">
+    <h1>Countdown till the Day of Judgement</h1>
+    <div id="time" class="time"></div>
+  </div>
 
-    <section id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill">HTML & CSS</div>
-                <div class="skill">JavaScript</div>
-                <div class="skill">React</div>
-                <div class="skill">Node.js</div>
-                <div class="skill">Python</div>
-                <div class="skill">Django</div>
-                <div class="skill">Git</div>
-                <div class="skill">Docker</div>
-            </div>
-        </div>
-    </section>
+  <script>
+    // Set the date for October 11th, 2024 at midnight IST (UTC+5:30)
+    const targetDate = new Date("October 11, 2024 00:00:00").getTime();
 
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>Project One</h3>
-                <p>Description of Project One. It demonstrates my skills in...</p>
-            </div>
-            <div class="project">
-                <h3>Project Two</h3>
-                <p>Description of Project Two. It showcases my expertise in...</p>
-            </div>
-        </div>
-    </section>
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const timeLeft = targetDate - now;
 
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>If you’d like to get in touch, feel free to find me on <a href="https://github.com/deycomicon" target="_blank">GitHub</a> and <a href="https://in.linkedin.com/in/priyanshudey" target="_blank">LinkedIn</a>.</p>
-        </div>
-    </section>
+      // Time calculations for days, hours, minutes, and seconds
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Priyanshu Dey. All rights reserved.</p>
-        </div>
-    </footer>
+      // Display the result in the element with id="time"
+      document.getElementById("time").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
-    <script>
-        function toggleMenu() {
-            const menu = document.getElementById('dropdownMenu');
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "block";
-            }
-        }
-    </script>
+      // If the countdown is over, display a message
+      if (timeLeft < 0) {
+        document.getElementById("time").innerHTML = "The time has arrived!";
+      }
+    }
+
+    // Update the countdown every 1 second
+    setInterval(updateCountdown, 1000);
+  </script>
+
 </body>
 </html>
