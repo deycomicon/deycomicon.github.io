@@ -1,5 +1,11 @@
 // script.js
 
+// Function to close the pop-up
+document.getElementById('close-popup-btn').addEventListener('click', function() {
+    document.getElementById('welcome-popup').style.display = 'none';
+});
+
+// Clock function (unchanged)
 function updateClock() {
     const now = new Date();
     let hours = now.getHours();
